@@ -1,3 +1,3 @@
-Tutors Resources
+Tutors Dev
 
-Exploring the Tutors Open Web Learnig Toolkit
+Redesign TutorsDev
