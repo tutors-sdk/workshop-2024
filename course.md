@@ -1,3 +1,3 @@
-# Tutors Open Source Workshop
+Bremen International Week
 
-Summer 2022 Workshop
+Interntionl Week Resources for Tutors
