@@ -1,3 +1,0 @@
-Diyar Aydin
-
-Diyars Site

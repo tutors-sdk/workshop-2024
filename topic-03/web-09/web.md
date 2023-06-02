@@ -1,3 +1,0 @@
-Nadine Faiss
-
-Nadines Presentation
