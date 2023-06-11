@@ -1,3 +1,0 @@
-TutorStack
-
-Reimagine TutorsStack 

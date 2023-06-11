@@ -1,3 +1,0 @@
-TutorStack
-
-The TutorStack Ecosystem
