@@ -1,3 +1,3 @@
-Bremen International Week
+Tutors Workshop
 
-Interntionl Week Resources for Tutors
+A workshop on Tutors Development
