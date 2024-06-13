@@ -4,7 +4,7 @@ icon:
 order: 3  
 ---
 
-# Rebuilding Tutors
+# Rebuild
 
 Install and rebuild the tutors reader
 
