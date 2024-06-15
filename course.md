@@ -1,3 +1,3 @@
-Tutors Workshop
+HSB International Week 2024: Tutors Workshop
 
-A workshop on Tutors Development
+Bremen University of Applied Sciences

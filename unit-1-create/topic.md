@@ -1,1 +1,1 @@
-# Challenge 1: Creating & Publishing a course
+# Creating & Publishing a Tutors Course

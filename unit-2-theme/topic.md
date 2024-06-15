@@ -1,1 +1,1 @@
-# Challenge 2: Theme & Iconography
+# Tutors Themes & Iconography
