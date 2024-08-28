@@ -1,3 +1,3 @@
-HSB International Week 2024: Tutors Workshop
+Tutors Workshop 2024
 
-Bremen University of Applied Sciences
+South East Techological University
