@@ -1,3 +1,3 @@
 Tutors Repo
 
-The Tutors open Sourece Monorepo
+The Tutors open Source Monorepo
