@@ -1,7 +1,7 @@
 ---
 icon:
-	type: line-md:cloud-alt-print-loop
-	color: green
+  type: line-md:cloud-alt-print-loop
+  color: green
 ---
 Tutors Example Programme
 
