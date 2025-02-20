@@ -3,6 +3,6 @@ icon:
   type: line-md:edit
   color: e2ac08 
 ---
-Editing a Course
+Tutors Roadmap
 
-Editing and republishing a course
+Visualising the next versions of Tutors
