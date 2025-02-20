@@ -1,3 +1,3 @@
-Tutors Workshop 2024
+Tutors Workshop 2025
 
 South East Techological University
