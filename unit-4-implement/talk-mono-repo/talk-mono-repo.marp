@@ -2,29 +2,6 @@
 marp: true
 theme: default
 paginate: true
-size: 16:9
----
-
-<style>
-section {
-  font-size: 28px;
-}
-h1 {
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-h2 {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-pre {
-  font-size: 20px;
-}
-table {
-  font-size: 24px;
-}
-</style>
-
 ---
 
 <!-- _class: lead -->
@@ -41,15 +18,14 @@ Version 1.0.0 • July 2026
 
 The **Tutors Monorepo** unifies the complete educational platform ecosystem:
 
-```
-┌─────────────────────────────────────────────────┐
-│         Tutors Monorepo Ecosystem               │
-├─────────────────────────────────────────────────┤
-│  📦 JSR Packages     (Course Generation)        │
-│  🎨 Svelte Packages  (UI & Services)            │
-│  🌐 Applications     (Reader, Catalogue, Live)  │
-│  ⚡ Services         (Real-time Infrastructure) │
-└─────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph Ecosystem["Tutors Monorepo Ecosystem"]
+        JSR["📦 JSR Packages<br/>(Course Generation)"]
+        Svelte["🎨 Svelte Packages<br/>(UI & Services)"]
+        Apps["🌐 Applications<br/>(Reader, Catalogue, Live)"]
+        Services["⚡ Services<br/>(Real-time Infrastructure)"]
+    end
 ```
 
 Single source of truth for course generation, content delivery, and educational features
@@ -134,23 +110,14 @@ tutors-mono-repo/
 
 # Architectural Layers
 
-```
-┌──────────────────────────────────────────┐
-│      Applications Layer                  │
-│   (reader, catalogue, live)              │
-└────────────────┬─────────────────────────┘
-                 │ consumes
-                 ▼
-┌──────────────────────────────────────────┐
-│     Svelte Packages Layer                │
-│  UI, Themes, Services, State             │
-└────────────────┬─────────────────────────┘
-                 │ depends on
-                 ▼
-┌──────────────────────────────────────────┐
-│       JSR Packages Layer                 │
-│  Models, Time, Generation Tools          │
-└──────────────────────────────────────────┘
+```mermaid
+graph TB
+    Apps["Applications Layer<br/>(reader, catalogue, live)"]
+    Svelte["Svelte Packages Layer<br/>UI, Themes, Services, State"]
+    JSR["JSR Packages Layer<br/>Models, Time, Generation Tools"]
+
+    Apps -->|consumes| Svelte
+    Svelte -->|depends on| JSR
 ```
 
 **Key Principle**: Bottom-up dependencies only
@@ -167,24 +134,19 @@ tutors-mono-repo/
 
 # JSR Package Overview
 
-```
-┌──────────────────────────────────────────┐
-│        JSR Subsystem                     │
-│   (Deno-First, Node-Compatible)          │
-│                                           │
-│  ┌────────┐  ┌──────┐  ┌────────┐       │
-│  │ Model  │  │ Time │  │  Gen   │       │
-│  │ (Core) │  │(Anal)│  │(Build) │       │
-│  └───┬────┘  └──┬───┘  └───┬────┘       │
-│      │          │          │             │
-│      └──────────┴──────────┘             │
-│      Published to jsr.io                 │
-│                                           │
-│  ┌────────┐                               │
-│  │Tutors  │  ← CLI orchestrator           │
-│  │ (CLI)  │                               │
-│  └────────┘                               │
-└──────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph JSR["JSR Subsystem (Deno-First, Node-Compatible)"]
+        Model["Model<br/>(Core)"]
+        Time["Time<br/>(Anal)"]
+        Gen["Gen<br/>(Build)"]
+        Tutors["Tutors<br/>(CLI)"]
+
+        Model --> Published[Published to jsr.io]
+        Time --> Published
+        Gen --> Published
+        Tutors -.->|orchestrates| Gen
+    end
 ```
 
 ---
@@ -350,21 +312,22 @@ deno run -A packages/jsr/tutors/main.ts
 
 # Svelte Packages Overview
 
-```
-┌──────────────────────────────────────────┐
-│    Svelte Package Ecosystem              │
-│                                           │
-│  ┌────────┐  ┌───────────┐  ┌────────┐  │
-│  │   UI   │  │ Community │  │ Themes │  │
-│  └───┬────┘  └─────┬─────┘  └───┬────┘  │
-│      │             │            │        │
-│      └─────────────┴────────────┘        │
-│                    │                     │
-│  ┌────────┐  ┌────┴────┐  ┌──────────┐ │
-│  │ Runes  │  │ Course  │  │  Utils   │ │
-│  │(State) │  │ (Proc.) │  │(i18n,...)│ │
-│  └────────┘  └─────────┘  └──────────┘ │
-└──────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph Ecosystem["Svelte Package Ecosystem"]
+        UI["UI"]
+        Community["Community"]
+        Themes["Themes"]
+        Runes["Runes<br/>(State)"]
+        Course["Course<br/>(Proc.)"]
+        Utils["Utils<br/>(i18n,...)"]
+
+        UI --> Course
+        Community --> Course
+        Themes --> Course
+        Course --> Runes
+        Course --> Utils
+    end
 ```
 
 ---
@@ -597,18 +560,13 @@ PRIVATE_AUTH_GITHUB_SECRET=...
 
 **`services/party`** - Real-time WebSocket Server
 
-```
-┌────────────────────────────────────────┐
-│      PartyKit Server                   │
-│                                         │
-│  ┌──────────┐      ┌──────────┐       │
-│  │  Server  │◄────►│ Clients  │       │
-│  │(WebSocket)│      │(Browsers)│       │
-│  └──────────┘      └──────────┘       │
-│                                         │
-│  Room-based broadcasting                │
-│  (one room per course)                  │
-└────────────────────────────────────────┘
+```mermaid
+graph LR
+    subgraph PartyKit["PartyKit Server"]
+        Server["Server<br/>(WebSocket)"]
+        Clients["Clients<br/>(Browsers)"]
+        Server <-->|Room-based<br/>broadcasting| Clients
+    end
 ```
 
 Each course = separate room for isolated presence
