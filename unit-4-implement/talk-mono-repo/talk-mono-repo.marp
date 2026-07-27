@@ -4,15 +4,28 @@ theme: default
 paginate: true
 style: |
   section {
-    padding-top: 40px;
+    padding: 30px 50px;
   }
-  section h1 {
-    margin-top: 0;
-    margin-bottom: 0.5em;
+  h1 {
+    font-size: 1.8em;
+    margin: 0 0 0.3em 0;
   }
-  section h2 {
-    margin-top: 0;
-    margin-bottom: 0.4em;
+  h2 {
+    font-size: 1.5em;
+    margin: 0 0 0.3em 0;
+  }
+  h3 {
+    font-size: 1.2em;
+    margin: 0 0 0.2em 0;
+  }
+  p, ul, ol, pre, table {
+    margin: 0.3em 0;
+  }
+  ul, ol {
+    padding-left: 1.5em;
+  }
+  li {
+    margin: 0.2em 0;
   }
 ---
 
