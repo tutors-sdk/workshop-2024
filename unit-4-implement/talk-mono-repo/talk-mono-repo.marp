@@ -18,15 +18,10 @@ Version 1.0.0 • July 2026
 
 The **Tutors Monorepo** unifies the complete educational platform ecosystem:
 
-```mermaid
-graph TB
-    subgraph Ecosystem["Tutors Monorepo Ecosystem"]
-        JSR["📦 JSR Packages<br/>(Course Generation)"]
-        Svelte["🎨 Svelte Packages<br/>(UI & Services)"]
-        Apps["🌐 Applications<br/>(Reader, Catalogue, Live)"]
-        Services["⚡ Services<br/>(Real-time Infrastructure)"]
-    end
-```
+**📦 JSR Packages** - Course Generation
+**🎨 Svelte Packages** - UI & Services
+**🌐 Applications** - Reader, Catalogue, Live
+**⚡ Services** - Real-time Infrastructure
 
 Single source of truth for course generation, content delivery, and educational features
 
@@ -110,15 +105,13 @@ tutors-mono-repo/
 
 # Architectural Layers
 
-```mermaid
-graph TB
-    Apps["Applications Layer<br/>(reader, catalogue, live)"]
-    Svelte["Svelte Packages Layer<br/>UI, Themes, Services, State"]
-    JSR["JSR Packages Layer<br/>Models, Time, Generation Tools"]
-
-    Apps -->|consumes| Svelte
-    Svelte -->|depends on| JSR
-```
+**Applications Layer**
+↓ consumes
+**Svelte Packages Layer**
+UI, Themes, Services, State
+↓ depends on
+**JSR Packages Layer**
+Models, Time, Generation Tools
 
 **Key Principle**: Bottom-up dependencies only
 
@@ -134,20 +127,12 @@ graph TB
 
 # JSR Package Overview
 
-```mermaid
-graph TB
-    subgraph JSR["JSR Subsystem (Deno-First, Node-Compatible)"]
-        Model["Model<br/>(Core)"]
-        Time["Time<br/>(Anal)"]
-        Gen["Gen<br/>(Build)"]
-        Tutors["Tutors<br/>(CLI)"]
+**JSR Subsystem** (Deno-First, Node-Compatible)
 
-        Model --> Published[Published to jsr.io]
-        Time --> Published
-        Gen --> Published
-        Tutors -.->|orchestrates| Gen
-    end
-```
+**Model** (Core) → Published to jsr.io
+**Time** (Analytics) → Published to jsr.io
+**Gen** (Build) → Published to jsr.io
+**Tutors** (CLI) - orchestrates Gen
 
 ---
 
@@ -312,23 +297,14 @@ deno run -A packages/jsr/tutors/main.ts
 
 # Svelte Packages Overview
 
-```mermaid
-graph TB
-    subgraph Ecosystem["Svelte Package Ecosystem"]
-        UI["UI"]
-        Community["Community"]
-        Themes["Themes"]
-        Runes["Runes<br/>(State)"]
-        Course["Course<br/>(Proc.)"]
-        Utils["Utils<br/>(i18n,...)"]
+**Top Layer:**
+- UI, Community, Themes
 
-        UI --> Course
-        Community --> Course
-        Themes --> Course
-        Course --> Runes
-        Course --> Utils
-    end
-```
+**Middle Layer:**
+- Course (Processing)
+
+**Foundation Layer:**
+- Runes (State), Utils (i18n, a11y, logger)
 
 ---
 
@@ -560,14 +536,9 @@ PRIVATE_AUTH_GITHUB_SECRET=...
 
 **`services/party`** - Real-time WebSocket Server
 
-```mermaid
-graph LR
-    subgraph PartyKit["PartyKit Server"]
-        Server["Server<br/>(WebSocket)"]
-        Clients["Clients<br/>(Browsers)"]
-        Server <-->|Room-based<br/>broadcasting| Clients
-    end
-```
+**Server (WebSocket)** ↔ **Clients (Browsers)**
+
+Room-based broadcasting (one room per course)
 
 Each course = separate room for isolated presence
 
