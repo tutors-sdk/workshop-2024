@@ -1,4 +1,9 @@
-# Monorepo Architecture
+---
+icon: 
+  type: carbon:cube
+  color: 4f46e5
+---
+Monorepo Architecture
 
 A comprehensive visual walkthrough of the Tutors monorepo structure, covering the technology stack, JSR subsystem (model, time, gen, tutors), Svelte package ecosystem, applications, services, and deployment workflows.
 
