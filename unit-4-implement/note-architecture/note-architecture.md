@@ -1220,7 +1220,7 @@ socket.send(JSON.stringify({
 ### End-to-End Flow
 
 ```mermaid
-flowchart TD
+flowchart LR
   author["Author Creates Content<br/>Markdown, YAML, Assets, Folder Structure"]
 
   author --> cli["tutors-cli<br/><i>deno run -A jsr:@tutors/reader</i>"]
