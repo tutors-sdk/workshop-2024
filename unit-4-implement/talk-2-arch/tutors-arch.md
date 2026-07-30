@@ -1,6 +1,7 @@
 ---
 icon: 
   type: flat-color-icons:genealogy
+order: 2
 ---
 Tutors Architecture
 

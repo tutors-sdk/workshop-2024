@@ -1,6 +1,13 @@
+
+---
+icon: 
+  type: flat-color-icons:genealogy
+order: 3  
+---
+
 Tutors Mono Repo Architecture
 
-Comprehensive architectural overview, onboarding guide, and reference for the Tutors monorepo ecosystem.
+Comprehensive architectural overview
 
 [[toc]]
 
